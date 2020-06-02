@@ -9,7 +9,7 @@ import (
 )
 
 func TestCatalog(t *testing.T) {
-	catalog := bmecat.NewCatalog{
+	catalog := bmecat.TNewCatalog{
 		Articles: []bmecat.Article{
 			{
 				SupplierArticleID: "123123",

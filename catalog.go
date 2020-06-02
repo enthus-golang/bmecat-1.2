@@ -2,7 +2,7 @@ package bmecat
 
 import "encoding/xml"
 
-type NewCatalog struct {
+type TNewCatalog struct {
 	XMLName xml.Name `xml:"T_NEW_CATALOG"`
 
 	CatalogGroupSystem *CatalogGroupSystem `xml:"CATALOG_GROUP_SYSTEM"`

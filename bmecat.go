@@ -12,5 +12,15 @@ type BMEcat struct {
 type BMEcatNewCatalog struct {
 	BMEcat
 
-	NewCatalog NewCatalog `xml:"T_NEW_CATALOG"`
+	NewCatalog TNewCatalog `xml:"T_NEW_CATALOG"`
+}
+
+func NewCatalog(header Header, catalog TNewCatalog) *BMEcatNewCatalog {
+	return &BMEcatNewCatalog{
+		BMEcat: BMEcat{
+			Version: "1.2",
+			Header: header,
+		},
+		NewCatalog: catalog,
+	}
 }
