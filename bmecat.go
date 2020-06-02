@@ -8,3 +8,9 @@ type BMEcat struct {
 
 	Header Header `xml:"HEADER"`
 }
+
+type BMEcatNewCatalog struct {
+	BMEcat
+
+	NewCatalog NewCatalog `xml:"T_NEW_CATALOG"`
+}
