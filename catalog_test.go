@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/mclgmbh/golang-pkg/bmecat"
+	"gitlab.com/mclgmbh/golang-pkg/bmecat-1.2"
 )
 
 func TestCatalog(t *testing.T) {
