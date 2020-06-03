@@ -5,8 +5,9 @@ import "encoding/xml"
 type TNewCatalog struct {
 	XMLName xml.Name `xml:"T_NEW_CATALOG"`
 
-	CatalogGroupSystem *CatalogGroupSystem `xml:"CATALOG_GROUP_SYSTEM"`
-	Articles           []Article           `xml:"ARTICLE"`
+	CatalogGroupSystem         *CatalogGroupSystem      `xml:"CATALOG_GROUP_SYSTEM"`
+	Articles                   []Article                `xml:"ARTICLE"`
+	ArticlesToCategoryGroupMap []ArticleToCategoryGroup `xml:"ARTICLE_TO_CATALOGGROUP_MAP"`
 }
 
 type Article struct {
@@ -108,4 +109,12 @@ type CatalogStructure struct {
 	GroupOrder       int       `xml:"GROUP_ORDER,omitempty"`
 	MIMEInfo         *MIMEInfo `xml:"MIME_INFO,omitempty"`
 	Keyword          string    `xml:"KEYWORD" validate:"max=50"`
+}
+
+type ArticleToCategoryGroup struct {
+	XMLName xml.Name `xml:"CATALOG_STRUCTURE"`
+
+	ArticleID      string `xml:"ART_ID" validate:"max=32"`
+	CatalogGroupID string `xml:"CATALOG_GROUP_ID" validate:"max=50"`
+	Order          int    `xml:"ARTICLE_TO_CATALOGGROUP_MAP_ORDER,omitempty"`
 }
