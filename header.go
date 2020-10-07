@@ -5,12 +5,12 @@ import "encoding/xml"
 type Header struct {
 	XMLName xml.Name `xml:"HEADER"`
 
-	GeneratorInformation  string   `xml:"GENERATOR_INFO"`
-	CatalogInformation    Catalog  `xml:"CATALOG"`
-	BuyerInformation      *Buyer   `xml:"BUYER"`
-	SkeletonAgreements    []string `xml:"AGREEMENT"`
-	SupplierInformation   Supplier `xml:"SUPPLIER"`
-	UserDefinedExtensions string   `xml:"USER_DEFINED_EXTENSIONS"`
+	GeneratorInformation  string      `xml:"GENERATOR_INFO"`
+	CatalogInformation    Catalog     `xml:"CATALOG"`
+	BuyerInformation      *Buyer      `xml:"BUYER"`
+	SkeletonAgreements    []Agreement `xml:"AGREEMENT"`
+	SupplierInformation   Supplier    `xml:"SUPPLIER"`
+	UserDefinedExtensions string      `xml:"USER_DEFINED_EXTENSIONS"`
 }
 
 type Catalog struct {
@@ -43,4 +43,11 @@ type Supplier struct {
 type TypeID struct {
 	Type  string `xml:"type,attr" validate:"required"`
 	Value string `xml:",innerxml" validate:"required"`
+}
+
+type Agreement struct {
+	XMLName xml.Name `xml:"AGREEMENT"`
+
+	ID       string     `xml:"AGREEMENT_ID" validate:"required"`
+	Datetime []Datetime `xml:"DATETIME" validate:"min=1,max=2"`
 }
