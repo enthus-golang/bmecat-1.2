@@ -23,23 +23,29 @@ type Article struct {
 type ArticleDetails struct {
 	XMLName xml.Name `xml:"ARTICLE_DETAILS"`
 
-	DescriptionShort             string `xml:"DESCRIPTION_SHORT" validate:"required,max=80"`
-	DescriptionLong              string `xml:"DESCRIPTION_LONG,omitempty" validate:"max=64000"`
-	EAN                          string `xml:"EAN,omitempty" validate:"max=14"`
-	SupplierAlternativeArticleID string `xml:"SUPPLIER_ALT_AID,omitempty" validate:"max=50"`
-	//BuyerArticleID               string `xml:"BUYER_AID,omitempty" validate:"max=50"`
-	ManufacturerArticleID       string `xml:"MANUFACTURER_AID,omitempty" validate:"max=50"`
-	ManufacturerName            string `xml:"MANUFACTURER_NAME,omitempty" validate:"max=50"`
-	ManufacturerTypeDescription string `xml:"MANUFACTURER_TYPE_DESCR,omitempty" validate:"max=50"`
-	ERPGroupBuyer               string `xml:"ERP_GROUP_BUYER,omitempty" validate:"max=10"`
-	ERPGroupSupplier            string `xml:"ERP_GROUP_SUPPLIER,omitempty" validate:"max=10"`
-	DeliveryTime                int    `xml:"DELIVERY_TIME,omitempty"`
+	DescriptionShort             string           `xml:"DESCRIPTION_SHORT" validate:"required,max=80"`
+	DescriptionLong              string           `xml:"DESCRIPTION_LONG,omitempty" validate:"max=64000"`
+	EAN                          string           `xml:"EAN,omitempty" validate:"max=14"`
+	SupplierAlternativeArticleID string           `xml:"SUPPLIER_ALT_AID,omitempty" validate:"max=50"`
+	BuyerArticleID               []BuyerArticleID `xml:"BUYER_AID"`
+	ManufacturerArticleID        string           `xml:"MANUFACTURER_AID,omitempty" validate:"max=50"`
+	ManufacturerName             string           `xml:"MANUFACTURER_NAME,omitempty" validate:"max=50"`
+	ManufacturerTypeDescription  string           `xml:"MANUFACTURER_TYPE_DESCR,omitempty" validate:"max=50"`
+	ERPGroupBuyer                string           `xml:"ERP_GROUP_BUYER,omitempty" validate:"max=10"`
+	ERPGroupSupplier             string           `xml:"ERP_GROUP_SUPPLIER,omitempty" validate:"max=10"`
+	DeliveryTime                 int              `xml:"DELIVERY_TIME,omitempty"`
 	//SpecialTreatmentClass        string   `xml:"SPECIAL_TREATMENT_CLASS,omitempty" validate:"max=20"`
 	Keyword      string `xml:"KEYWORD,omitempty" validate:"max=50"`
 	Remarks      string `xml:"REMARKS,omitempty" validate:"max=64000"`
 	Segment      string `xml:"SEGMENT,omitempty" validate:"max=100"`
 	ArticleOrder int    `xml:"ARTICLE_ORDER,omitempty"`
 	//ArticleStatus                []string `xml:"ARTICLE_STATUS,omitempty" validate:"max=250"`
+}
+
+type BuyerArticleID struct {
+	XMLName xml.Name `xml:"BUYER_AID"`
+	Type    string   `xml:"type,attr" validate:"required"`
+	Value   string   `xml:",innerxml" validate:"required,max=50"`
 }
 
 type ArticleOrderDetails struct {
