@@ -18,7 +18,7 @@ func TestHeader(t *testing.T) {
 			ID:               "2012",
 			Version:          "001.001",
 			Name:             "asd",
-			Date:             bmecat.NewDatetime("generation_date", time.Date(2010, 5, 7, 13, 21, 15, 0, time.UTC)),
+			Date:             bmecat.NewDatetime("generation_date", time.Date(2010, 5, 7, 13, 21, 15, 0, time.UTC), true),
 			StandardCurrency: "USD",
 		},
 		SupplierInformation: bmecat.Supplier{
