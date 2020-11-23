@@ -15,6 +15,7 @@ type Article struct {
 
 	SupplierArticleID   string              `xml:"SUPPLIER_AID" validate:"required,max=32"`
 	ArticleDetails      ArticleDetails      `xml:"ARTICLE_DETAILS"`
+	ArticleFeatures     []ArticleFeature    `xml:"ARTICLE_FEATURES"`
 	ArticleOrderDetails ArticleOrderDetails `xml:"ARTICLE_ORDER_DETAILS"`
 	ArticlePriceDetails ArticlePriceDetails `xml:"ARTICLE_PRICE_DETAILS"`
 	MimeInfo            *MIMEInfo           `xml:"MIME_INFO"`
@@ -40,6 +41,14 @@ type ArticleDetails struct {
 	Segment      string `xml:"SEGMENT,omitempty" validate:"max=100"`
 	ArticleOrder int    `xml:"ARTICLE_ORDER,omitempty"`
 	//ArticleStatus                []string `xml:"ARTICLE_STATUS,omitempty" validate:"max=250"`
+}
+
+type ArticleFeature struct {
+	XMLName xml.Name `xml:"ARTICLE_FEATURES"`
+
+	ReferenceFeatureSystemName string `xml:"REFERENCE_FEATURE_SYSTEM_NAME,omitempty" validate:"max=50"`
+	ReferenceFeatureGroupID    string `xml:"REFERENCE_FEATURE_GROUP_ID,omitempty" validate:"max=60"`
+	ReferenceFeatureGroupName  string `xml:"REFERENCE_FEATURE_GROUP_NAME,omitempty" validate:"max=60"`
 }
 
 type BuyerArticleID struct {
