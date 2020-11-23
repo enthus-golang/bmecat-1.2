@@ -118,7 +118,7 @@ type CatalogStructure struct {
 }
 
 type ArticleToCategoryGroup struct {
-	XMLName xml.Name `xml:"CATALOG_STRUCTURE"`
+	XMLName xml.Name `xml:"ARTICLE_TO_CATALOGGROUP_MAP"`
 
 	ArticleID      string `xml:"ART_ID" validate:"max=32"`
 	CatalogGroupID string `xml:"CATALOG_GROUP_ID" validate:"max=50"`
