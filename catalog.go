@@ -46,9 +46,16 @@ type ArticleDetails struct {
 type ArticleFeature struct {
 	XMLName xml.Name `xml:"ARTICLE_FEATURES"`
 
-	ReferenceFeatureSystemName string `xml:"REFERENCE_FEATURE_SYSTEM_NAME,omitempty" validate:"max=50"`
-	ReferenceFeatureGroupID    string `xml:"REFERENCE_FEATURE_GROUP_ID,omitempty" validate:"max=60"`
-	ReferenceFeatureGroupName  string `xml:"REFERENCE_FEATURE_GROUP_NAME,omitempty" validate:"max=60"`
+	ReferenceFeatureSystemName string    `xml:"REFERENCE_FEATURE_SYSTEM_NAME,omitempty" validate:"max=50"`
+	ReferenceFeatureGroupID    string    `xml:"REFERENCE_FEATURE_GROUP_ID,omitempty" validate:"max=60"`
+	ReferenceFeatureGroupName  string    `xml:"REFERENCE_FEATURE_GROUP_NAME,omitempty" validate:"max=60"`
+	Features                   []Feature `xml:"FEATURE"`
+}
+
+type Feature struct {
+	XMLName xml.Name `xml:"FEATURE"`
+	Name    string   `xml:"FNAME"`
+	Value   string   `xml:"FVALUE"`
 }
 
 type BuyerArticleID struct {
