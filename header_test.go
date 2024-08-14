@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"gitlab.com/mclgmbh/golang-pkg/bmecat-1.2"
+	"github.com/enthus-golang/bmecat-1.2"
 )
 
 func TestHeader(t *testing.T) {
